@@ -1,24 +1,9 @@
-function buscarCEP() {
-    const ajax = new XMLHttpRequest();
-    let input = document.getElementById('input').value;
-    ajax.open('GET', 'https://viacep.com.br/ws/' + input + '/json/');
-    ajax.send();
+let numeros = [1,2,3,4,5];
 
-    ajax.onload = function () {
-        document.querySelector('.teste').innerHTML = this.responseText;
+let numerosFiltrados = numeros.filter(verificar);
 
-        const obj = JSON.parse(this.responseText);
-
-        let cidade = obj.localidade;
-        let bairoo = obj.uf;
-        let cep = obj.cep;
-        let ddd = obj.ddd;
-
-        document.querySelector('.teste').innerHTML = `
-        ${cidade}  
-        ${bairoo} 
-        ${cep} 
-        ${ddd} 
-        `
-    }
+function verificar(valor) {
+    return valor > 2
 }
+
+console.log(numerosFiltrados);
