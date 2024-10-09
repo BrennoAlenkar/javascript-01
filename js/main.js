@@ -1,7 +1,11 @@
-const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const segundos = 1000;
+let cronometro = 0;
 
-const newArray = a.map((value, index, array) => value * 2);
+function iniciar() {
+    setInterval(() => {
+        cronometro += 1; 
+        document.querySelector('.teste').innerHTML = cronometro; 
+    }, segundos);
+}
 
-
-
-console.log(newArray)
+iniciar();
