@@ -1,14 +1,24 @@
-const pessoa = {
-    nome: 'Brenno Alencar',
-    idade: 27,
-    salario: 3500,
-    love: 'jj',
-    trabalho: 'Developer',
+let botao = document.querySelector('.botao');
+let resposta = document.querySelector('.teste');
+let minIdade = 16;
+let idadeOpcional = 18;
+let idadeMax = 65;
 
-    completo: function() {
-        document.querySelector('.teste').innerHTML = `O nome é ${this.nome}, tem ${this.idade}, ganha R$${this.salario} e seu grande amor é a ${this.love}!`
+botao.onclick = () => {
+    let idade = document.querySelector('#input').value;
+    idade = Number(idade);
+
+    if (idade < minIdade) {
+        resposta.innerHTML = `A idade é ${idade} anos, Não vota!`;
+        resposta.style.color = 'red';
+
+    } else if (idade < idadeOpcional || idade >= idadeMax) {
+        resposta.innerHTML = `A idade é ${idade} anos, Voto opcional`;
+        resposta.style.color = 'blue';
+
+    } else {
+        resposta.innerHTML = `A idade é ${idade} anos, Voto obrigatorio`;
+        resposta.style.color = 'green';
     }
 }
 
-
-console.log(pessoa.completo());
