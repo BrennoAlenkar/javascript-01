@@ -8,17 +8,17 @@ botao.onclick = () => {
     let idade = document.querySelector('#input').value;
     idade = Number(idade);
 
-    if (idade < minIdade) {
+    if (isNaN(idade)) {
+        resposta.innerHTML = 'Por favor, insira uma idade válida.';
+        resposta.style.color = 'orange';
+    } else if (idade < minIdade) {
         resposta.innerHTML = `A idade é ${idade} anos, Não vota!`;
         resposta.style.color = 'red';
-
-    } else if (idade < idadeOpcional || idade >= idadeMax) {
+    } else if (idade < idadeOpcional || idade > idadeMax) {
         resposta.innerHTML = `A idade é ${idade} anos, Voto opcional`;
         resposta.style.color = 'blue';
-
     } else {
-        resposta.innerHTML = `A idade é ${idade} anos, Voto obrigatorio`;
+        resposta.innerHTML = `A idade é ${idade} anos, Voto obrigatório`;
         resposta.style.color = 'green';
     }
 }
-
