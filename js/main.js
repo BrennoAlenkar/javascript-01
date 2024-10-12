@@ -1,6 +1,19 @@
-
 const numbers = [1, 2, 3, 4, 5];
 
-const newArray = numbers.map((value, index, array) => value * 2);
+const total = myReduce(numbers, (accumulator, value) => {
+    console.log(accumulator);
+    console.log(' ');
+    return accumulator + value;
+}, 0);
 
-console.log(newArray)
+function myReduce(array, callback, initialValue) {
+    let accumulator = initialValue;
+
+    for (let i = 0; i < array.length; i++) {
+        accumulator = callback(accumulator, array[i], i, array);
+    }
+
+    return accumulator;
+}
+
+console.log(total);
